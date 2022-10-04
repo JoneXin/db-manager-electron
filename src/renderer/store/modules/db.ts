@@ -94,18 +94,23 @@ export const useDbStore = defineStore({
      */
     async getDatabasesList(): Promise<void> {
       this.loadingTree = true;
-      this.currentDbListInfo = await showDatabases(this.currentOperatoeConnInfo);
-      this.treeData = this.currentDbListInfo.map((item: string, index) => ({
-        title: item,
-        key: String(index),
-        disabled:
-          item == 'mysql' ||
-            item == 'sys' ||
-            item == 'performance_schema' ||
-            item == 'information_schema'
-            ? true
-            : false,
-      }));
+      try {
+        this.currentDbListInfo = await showDatabases(this.currentOperatoeConnInfo);
+        this.treeData = this.currentDbListInfo.map((item: string, index) => ({
+          title: item,
+          key: String(index),
+          disabled:
+            item == 'mysql' ||
+              item == 'sys' ||
+              item == 'performance_schema' ||
+              item == 'information_schema'
+              ? true
+              : false,
+        }));
+      } catch (error) {
+        console.log(error);
+        this.treeData = []
+      }
       this.loadingTree = false;
     },
     /**

@@ -44,7 +44,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0px 0px 10px inset grey;
+        // box-shadow: 0px 0px 10px inset grey;
 
         > img {
           height: 80%;

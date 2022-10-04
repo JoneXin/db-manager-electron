@@ -18,7 +18,8 @@
         <p @click="limtTrucate">按条件清空表</p> -->
       </template>
     </MenuEdit>
-    <p class="title">DATABASE TREE:</p>
+    <!-- <p class="title">DATABASE TREE:</p> -->
+    <p class="title">数据库树:</p>
     <div class="detail-content" ref="detailContent">
       <a-spin :spinning="dbStore.loadingTree">
         <a-tree
@@ -51,7 +52,7 @@
         </a-tree>
       </a-spin>
     </div>
-    <TableModel
+    <!-- <TableModel
       :is-show-model="treeState.isShowTableModel"
       @update-show-status="
         (val) => {
@@ -60,7 +61,7 @@
       "
       :dbName="treeState.dbName"
       @refresh="refresh"
-    ></TableModel>
+    ></TableModel> -->
   </div>
 </template>
 
@@ -82,7 +83,7 @@
     checkedKeys: [],
     dbName: '',
     currentNode: {} as EventDataNode,
-    isShowTableModel: false,
+    isShowTableModel: true,
   });
 
   const dbStore = useDbStore();
@@ -345,8 +346,11 @@
   }
 
   .detail-content {
-    padding: 20px;
-    height: 100%;
+    box-sizing: border-box;
+    // padding: 20px;
+    margin: 0 10px;
+    height: 94%;
+    width: 95%;
     overflow: auto;
     .nodes {
       display: flex;

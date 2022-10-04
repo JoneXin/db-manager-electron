@@ -12,6 +12,7 @@
           :scroll="{ y: 450 }"
           class="result-table"
           bordered
+          @resizeColumn="resultState.handleResizeColumn"
         >
           <template #headerCell="{ column }">
             <p style="color: #d8770b; font-weight: 600">{{ column.title }}</p>
@@ -37,6 +38,9 @@
   const resultState = reactive({
     data: [{ uid: 1 }],
     currentPage: 1,
+    handleResizeColumn: (w: any, col: { width: any }) => {
+      col.width = w;
+    },
   });
 
   const dbStore = useDbStore();
@@ -81,8 +85,8 @@
         height: 87% !important;
       }
       .tableCell {
-        height: 100%;
-        width: 138px;
+        height: 98%;
+        width: 98%;
         border: none;
       }
       .pagination {

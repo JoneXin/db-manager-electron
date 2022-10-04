@@ -4,7 +4,7 @@
       <a-button class="btn" @click="dbStore.queryBySql">查询</a-button>
       <a-button class="btn" @click="exportDataStruct">导出数据结构</a-button>
       <a-button class="btn" @click="syncDataStruct">批量同步数据结构</a-button>
-      <a-button class="btn"  >批量按条件删除数据</a-button>
+      <a-button class="btn">批量按条件删除数据</a-button>
       <a-button class="btn" @click="batchDelete">批量清空数据</a-button>
       <a-button class="btn" @click="importDataBySql">从.sql导入</a-button>
     </div>
@@ -16,7 +16,7 @@
     </div>
     <SyncModel ref="syncModelRef"></SyncModel>
     <ExportModel ref="exportModelRef"></ExportModel>
-<BatchDeleteModel ref="batchDeleteModelRef"></BatchDeleteModel>
+    <BatchDeleteModel ref="batchDeleteModelRef"></BatchDeleteModel>
     <FileSelectModel
       :isShowModel="sysStore.isShowPathSelectModel"
       @updateShowStatus="
@@ -95,7 +95,7 @@
    */
   const batchDelete = () => {
     batchDeleteModelRef.value.batchDeleteState.isShowModel = true;
-  }
+  };
 
   /**
    * 导出sql
@@ -204,6 +204,7 @@
         // flex: 1;
         border: 1px solid red;
         width: 350px;
+        // overflow-x: scroll;
         // overflow: auto;
         // min-width: 300px;
         // max-width: 600px;

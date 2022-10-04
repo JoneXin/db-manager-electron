@@ -20,7 +20,8 @@ export const responceInterceptors = (axiosInstance: Axios) => {
   axiosInstance.interceptors.response.use(
     ({ data: res }) => {
       if (res.code == 400) {
-        $message.error(res.data.message, 10);
+        $message.error(res.message.message, 10);
+        return Promise.reject(new Error(res.message.message));
       }
       // 统一错误校验
       if (res.code !== 200) {
