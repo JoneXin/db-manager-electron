@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
   import PageHeader from '../layout/header/index.vue';
-  import PageFooter from '../layout/footer';
+  import PageFooter from '../layout/footer/index.vue';
   import Operator from './operator/index.vue';
 </script>
 
