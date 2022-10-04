@@ -4,8 +4,8 @@
       <a-button class="btn" @click="dbStore.queryBySql">查询</a-button>
       <a-button class="btn" @click="exportDataStruct">导出数据结构</a-button>
       <a-button class="btn" @click="syncDataStruct">批量同步数据结构</a-button>
-      <a-button class="btn">批量删除数据</a-button>
-      <a-button class="btn">批量清空数据</a-button>
+      <a-button class="btn"  >批量按条件删除数据</a-button>
+      <a-button class="btn" @click="batchDelete">批量清空数据</a-button>
       <a-button class="btn" @click="importDataBySql">从.sql导入</a-button>
     </div>
     <div class="detail-box" ref="leftDetailRef">
@@ -16,6 +16,7 @@
     </div>
     <SyncModel ref="syncModelRef"></SyncModel>
     <ExportModel ref="exportModelRef"></ExportModel>
+<BatchDeleteModel ref="batchDeleteModelRef"></BatchDeleteModel>
     <FileSelectModel
       :isShowModel="sysStore.isShowPathSelectModel"
       @updateShowStatus="
@@ -37,6 +38,7 @@
   import { useSystemStore } from '../../../store/modules/system';
   import SyncModel from './model/sync.model.vue';
   import ExportModel from './model/export.model.vue';
+  import BatchDeleteModel from './model/batch.delete.model.vue';
   import { onMounted, reactive, ref } from 'vue';
   import ResultContainer from './result/index.vue';
   import FileSelectModel from '../../../components/model-file-tree/index.vue';
@@ -66,6 +68,7 @@
   const syncModelRef = ref();
   const exportModelRef = ref();
   const fileSelectModelRef = ref();
+  const batchDeleteModelRef = ref();
 
   const dbStore = useDbStore();
   const sysStore = useSystemStore();
@@ -86,6 +89,13 @@
     syncModelRef.value.syncModelState.isShowModel = true;
     syncModelRef.value.syncModelState.activeKey = '1';
   };
+
+  /**
+   * 批量清空数据
+   */
+  const batchDelete = () => {
+    batchDeleteModelRef.value.batchDeleteState.isShowModel = true;
+  }
 
   /**
    * 导出sql

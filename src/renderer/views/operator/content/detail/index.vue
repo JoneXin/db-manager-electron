@@ -7,7 +7,7 @@
       @confirmTrucate="confirmTrucate"
     >
       <template #menuOption>
-        <p @click="exportTableData">导出数据</p>
+        <!-- <p @click="exportTableData">导出数据</p>
         <p @click="exportTableStruct">导出格式</p>
         <p @click="newTable">新建表</p>
         <p @click="editeTable">编辑表</p>
@@ -15,7 +15,7 @@
         <p @click="refresh">刷新</p>
         <p @click="refresh">截断</p>
         <p @click="refresh">按条件截断表</p>
-        <p @click="limtTrucate">按条件清空表</p>
+        <p @click="limtTrucate">按条件清空表</p> -->
       </template>
     </MenuEdit>
     <p class="title">DATABASE TREE:</p>
@@ -66,15 +66,12 @@
 
 <script setup lang="ts">
   import { useDbStore } from '../../../../store/modules/db';
-  import { computed, onMounted, reactive, ref, watch } from 'vue';
-  import { showDatabases } from '../../../../api/database/index';
+  import { onMounted, reactive, ref } from 'vue';
   import { TreeProps } from 'ant-design-vue/lib/tree/Tree';
   import { useSystemStore } from '../../../../store/modules/system';
   import MenuEdit from '../../../../components/right-menu/index.vue';
-  import { number } from 'vue-types';
   import { formatCheckedNodes } from '../../../../utils/tool';
   import { useRouter } from 'vue-router';
-  import { TreeNodeProps } from 'ant-design-vue/lib/vc-tree';
   import { EventDataNode } from 'ant-design-vue/lib/tree';
   import TableModel from './table.model.vue';
   import { getTableDetail } from '../../../../api/table';

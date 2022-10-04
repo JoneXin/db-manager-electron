@@ -4,11 +4,11 @@
     <Content></Content>
   </div>
 </template>
-
 <script setup lang="ts">
   import Menu from './menu/index.vue';
   import Content from './content/index.vue';
 </script>
+
 
 <style scoped lang="less">
   .operator-box {

@@ -35,14 +35,7 @@
       </ul>
       <div class="menu-edit" v-show="menuState.isShowEditBox" ref="menu_edit">
         <p @click="editConnection">编辑连接</p>
-        <p
-          @click="
-            () => {
-              menuState.isShowDbCreaterModel = true;
-            }
-          "
-          >新建库</p
-        >
+        <p @click="() => {menuState.isShowDbCreaterModel = true}">新建库</p>
         <p @click="refreShDbTree">刷新</p>
         <p>
           <a-popconfirm
@@ -56,7 +49,7 @@
             <p class="del" id="del">删除连接</p>
           </a-popconfirm>
         </p>
-        <p @click="openCommandWindow">命令行</p>
+        <!-- <p @click="openCommandWindow">命令行</p> -->
       </div>
     </div>
     <MenuModel ref="menu_model"></MenuModel>
