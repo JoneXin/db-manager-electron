@@ -47,8 +47,9 @@
         // box-shadow: 0px 0px 10px inset grey;
 
         > img {
-          height: 80%;
-          width: 80%;
+          height: 98%;
+          width: 98%;
+          // background-color: rgb(243, 255, 240);
         }
       }
       p {

@@ -1,14 +1,15 @@
 <template>
 
     <div class="pagefooter">
-      <TaskBlock class="task"></TaskBlock>
-      <TaskBlock class="task"></TaskBlock>
+        <!-- <TaskBlock class="task"></TaskBlock>
+        <TaskBlock class="task"></TaskBlock> -->
+        <p>A really freedom man, must be a restraint man</p>
     </div>
 
 </template>
 
 <script setup lang="ts">
-  
+
 </script>
 
 <style scoped lang="less">
@@ -18,11 +19,17 @@
       width: 99%;
       display: flex;
       align-items: center;
+      justify-content: center;
       border-radius: .9375rem;
       margin: .625rem auto;
       box-sizing: border-box;
       box-shadow: .125rem .125rem .625rem .125rem rgba(128, 128, 128, 0.699);
-      background-image: linear-gradient( 180deg, #eeff004a 10%, #58cffbe3 100%);
+     background-color: rgba(1, 40, 68, 0.545);
+    }
+    p {
+      font-size: 30px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: white;
     }
     .task {
       margin-left: .625rem;
