@@ -52,7 +52,7 @@
 </style>
 <style scoped lang="less">
   .result-container {
-    width: 100%;
+    width: calc(100vw - 640px);
     height: 100% !important;
     padding: 15px;
     // height: calc(100vh - 240px) !important;
@@ -71,6 +71,8 @@
     }
     .result {
       height: calc(100% - 60px);
+      width: 100%;
+      overflow: scroll;
       border-radius: 15px;
       // padding: 10px;/
       box-sizing: border-box;
@@ -80,7 +82,7 @@
       }
       .tableCell {
         height: 100%;
-        width: 118px;
+        width: 138px;
         border: none;
       }
       .pagination {

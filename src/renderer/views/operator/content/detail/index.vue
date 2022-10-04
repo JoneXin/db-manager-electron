@@ -1,5 +1,5 @@
 <template>
-  <div style="overflow: hidden; height: calc(100vh - 300px)">
+  <div class="detail-border">
     <MenuEdit
       ref="treeMenuRef"
       :defaulTrucateOption="true"
@@ -90,6 +90,7 @@
 
   const dbStore = useDbStore();
   const systemStore = useSystemStore();
+
   const treeMenuRef = ref();
   const detailContent = ref();
   const router = useRouter();
@@ -340,11 +341,16 @@
 </script>
 
 <style scoped lang="less">
+  .detail-border {
+    overflow: hidden;
+    // 和detail-box的高度保持相同
+    height: calc(100vh - 240px);
+  }
+
   .detail-content {
     padding: 20px;
     height: 100%;
     overflow: auto;
-
     .nodes {
       display: flex;
       justify-content: space-between;

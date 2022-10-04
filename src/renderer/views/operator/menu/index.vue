@@ -193,14 +193,15 @@
 <style scoped lang="less">
   .menu-box {
     height: 100%;
-    width: 20%;
-    max-width: 300px;
-    min-width: 200px;
+    // width: 20%;
+    width: 300px;
+    // max-width: 300px;
+    // min-width: 200px;
     border-radius: 15px;
     margin-left: 10px;
     background-color: #ffffff;
     box-shadow: 2px 2px 10px 2px rgba(128, 128, 128, 0.699);
-
+    border: 1px solid rgb(34, 36, 139);
     > .connection-box {
       height: 50px;
       padding: 10px;

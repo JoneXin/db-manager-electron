@@ -14,8 +14,9 @@
   .operator-box {
     display: flex;
     margin-top: 10px;
-    height: calc(100vh - 160px);
-    margin-bottom: 10px;
-    width: 100%;
+    height: calc(100vh - 165px);
+    // height: calc(100vh - 160px);
+    margin-bottom: 5px;
+    // width: 100%;
   }
 </style>

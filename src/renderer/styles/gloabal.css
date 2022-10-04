@@ -36,9 +36,12 @@
     /* background-color: red;
     -webkit-border-radius: 4px; */
     /* background-color: #83baee; */
-    box-shadow: 0 5px 10px #83baee;
+    /* box-shadow: 0 5px 10px #83baee; */
 }
 
 body {
     background-color: aliceblue;
+    border: 1px solid transparent;
+    border: 1px solid green;
+    width: 100%;
 }

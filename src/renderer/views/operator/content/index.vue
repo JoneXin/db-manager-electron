@@ -157,6 +157,7 @@
     box-shadow: 2px 2px 10px 2px rgba(128, 128, 128, 0.699);
     background-color: white;
     margin: 0 20px;
+    border: 1px solid orangered;
     > .operator-box {
       height: 50px;
       display: flex;
@@ -187,13 +188,15 @@
       display: flex;
       margin-top: 10px;
       height: calc(100vh - 240px);
-      // border: 1px solid;
-
+      border: 1px solid rgb(14, 10, 10);
       border-radius: 15px;
       > .left-detail {
-        flex: 1;
-        min-width: 300px;
-        max-width: 600px;
+        // flex: 1;
+        border: 1px solid red;
+        width: 350px;
+        // overflow: auto;
+        // min-width: 300px;
+        // max-width: 600px;
         border-right: 1px solid rgba(128, 128, 128, 0.473);
         margin-right: 10px;
         box-shadow: 0px 0px 10px inset gray;
@@ -202,13 +205,15 @@
       > .right-detail {
         position: relative;
         height: 100%;
-        width: 80%;
-        max-width: 1000px;
+        flex: 1;
+        border: 1px solid hotpink;
+        overflow: auto;
+        // width: 80%;
+        // max-width: 1000px;
         min-width: 200px;
         height: 450px;
         box-shadow: 0px 0px 10px inset gray;
         border-radius: 15px;
-
         > .divider {
           // position: absolute;
           // left: 0;
