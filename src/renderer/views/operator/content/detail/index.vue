@@ -19,7 +19,7 @@
       </template>
     </MenuEdit>
     <!-- <p class="title">DATABASE TREE:</p> -->
-    <p class="title">数据库树:</p>
+    <!-- <p class="title">数据库树:</p> -->
     <div class="detail-content" ref="detailContent">
       <a-spin :spinning="dbStore.loadingTree">
         <a-tree
@@ -349,7 +349,9 @@
     box-sizing: border-box;
     // padding: 20px;
     margin: 0 10px;
-    height: 94%;
+    // height: 94%;
+    margin-top: 10px;
+    height: 98%;
     width: 95%;
     overflow: auto;
     .nodes {

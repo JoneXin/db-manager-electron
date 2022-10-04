@@ -49,9 +49,12 @@
   onMounted(() => {});
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   .ant-table-tbody > tr > td {
     padding: 0 !important;
+  }
+  .ant-spin-container {
+    overflow: scroll;
   }
 </style>
 <style scoped lang="less">
@@ -113,3 +116,22 @@
     }
   }
 </style>
+<!-- <style>
+  .result-table .ant-spin-container {
+    height: 100%;
+    border: 1px solid firebrick !important;
+  }
+  .result-table
+    .ant-spin-container
+    .ant-table-empty
+    .ant-table-container
+    .ant-table-body
+    .ant-empty {
+    border: 1px solid rgb(34, 178, 89) !important;
+    height: 400px;
+  }
+  .result-table .ant-spin-container .ant-table-empty {
+    height: 100%;
+    border: 1px solid rgb(34, 36, 178) !important;
+  }
+</style> -->

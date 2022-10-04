@@ -139,8 +139,8 @@ export const useDbStore = defineStore({
       });
       this.currentSearchResultColum = fields.map((item: any) => ({
         ...item,
-        align: 'left ',
-        width: 120,
+        align: 'left',
+        width: Number(item.title.length) <= 5 ? 60 : Number(item.title.length) * 10,
         resizable: true,
         rowDrag: true,
       }));
