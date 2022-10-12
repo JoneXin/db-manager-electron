@@ -117,7 +117,7 @@
     // height: 200px;
     width: 100px;
     border-radius: 10px;
-    border: 1px solid gold;
+    // border: 1px solid gold;
     background-color: #f8f8f8;
     cursor: pointer;
     p,

@@ -35,7 +35,14 @@
       </ul>
       <div class="menu-edit" v-show="menuState.isShowEditBox" ref="menu_edit">
         <p @click="editConnection">编辑连接</p>
-        <p @click="() => {menuState.isShowDbCreaterModel = true}">新建库</p>
+        <p
+          @click="
+            () => {
+              menuState.isShowDbCreaterModel = true;
+            }
+          "
+          >新建库</p
+        >
         <p @click="refreShDbTree">刷新</p>
         <p>
           <a-popconfirm
@@ -194,7 +201,7 @@
     margin-left: 10px;
     background-color: #ffffff;
     box-shadow: 2px 2px 10px 2px rgba(128, 128, 128, 0.699);
-    border: 1px solid rgb(34, 36, 139);
+    // border: 1px solid rgb(34, 36, 139);
     > .connection-box {
       height: 50px;
       padding: 10px;
@@ -283,7 +290,7 @@
         // height: 200px;
         width: 100px;
         border-radius: 10px;
-        border: 1px solid gold;
+        // border: 1px solid gold;
         background-color: #f8f8f8;
         p {
           height: 30px;

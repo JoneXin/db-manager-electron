@@ -167,7 +167,7 @@
     box-shadow: 2px 2px 10px 2px rgba(128, 128, 128, 0.699);
     background-color: white;
     margin: 0 20px;
-    border: 1px solid orangered;
+    // border: 1px solid orangered;
     > .operator-box {
       height: 50px;
       display: flex;
@@ -198,11 +198,11 @@
       display: flex;
       margin-top: 10px;
       height: calc(100vh - 240px);
-      border: 1px solid rgb(14, 10, 10);
+      // border: 1px solid rgb(14, 10, 10);
       border-radius: 15px;
       > .left-detail {
         // flex: 1;
-        border: 1px solid red;
+        // border: 1px solid red;
         width: 350px;
         // overflow-x: scroll;
         // overflow: auto;
@@ -217,7 +217,7 @@
         position: relative;
         height: 100%;
         flex: 1;
-        border: 1px solid hotpink;
+        // border: 1px solid hotpink;
         overflow: auto;
         // width: 80%;
         // max-width: 1000px;

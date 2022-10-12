@@ -90,7 +90,7 @@ function stop() {
 
 async function start() {
   console.log(`${Chalk.greenBright('=======================================')}`);
-  console.log(`${Chalk.greenBright('Starting Electron + Vite Dev Server...')}`);
+  console.log(`${Chalk.greenBright('============= DB Manager ==============')}`);
   console.log(`${Chalk.greenBright('=======================================')}`);
 
   const devServer = await startRenderer();

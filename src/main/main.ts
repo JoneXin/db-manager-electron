@@ -1,5 +1,6 @@
 import { app, BrowserWindow, ipcMain, session } from 'electron';
 import { join } from 'path';
+// const InitApp = require('./server/index.js');
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -9,29 +10,29 @@ function createWindow() {
       preload: join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
-    }
+    },
   });
 
   if (process.env.NODE_ENV === 'development') {
     const rendererPort = process.argv[2];
     mainWindow.loadURL(`http://localhost:${rendererPort}`);
-  }
-  else {
+  } else {
     mainWindow.loadFile(join(app.getAppPath(), 'renderer', 'index.html'));
   }
 }
 
 app.whenReady().then(() => {
+  // InitApp();
   createWindow();
 
   session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
     callback({
       responseHeaders: {
         ...details.responseHeaders,
-        'Content-Security-Policy': ['script-src \'self\'']
-      }
-    })
-  })
+        'Content-Security-Policy': ["script-src 'self'"],
+      },
+    });
+  });
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -43,9 +44,9 @@ app.whenReady().then(() => {
 });
 
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
+  if (process.platform !== 'darwin') app.quit();
 });
 
 ipcMain.on('message', (event, message) => {
   console.log(message);
-})
+});
