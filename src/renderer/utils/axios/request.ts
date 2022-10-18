@@ -4,7 +4,7 @@ import { requestInterceptors, responceInterceptors } from './interceptor';
 import { message as $message } from 'ant-design-vue';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://127.0.0.1:4545/api/',
+  baseURL: 'http://192.168.0.32:4545/api/',
   timeout: 6000,
 });
 

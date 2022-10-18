@@ -25,6 +25,10 @@ interface dbType {
   selectDbTreeNode: [];
   taskQueue: [];
   currentCommandDbName: string;
+  clickDbName: string;
+  clickTableName: string;
+  detailPageSize: number;
+  detailTotal: number;
 }
 interface TreeConf {
   title: string;
@@ -46,6 +50,10 @@ export const useDbStore = defineStore({
     selectDbTreeNode: [] as any,
     taskQueue: [],
     currentCommandDbName: '',
+    clickDbName: '',
+    clickTableName: '',
+    detailPageSize: 13,
+    detailTotal: 0,
   }),
   getters: {},
   actions: {
@@ -101,15 +109,15 @@ export const useDbStore = defineStore({
           key: String(index),
           disabled:
             item == 'mysql' ||
-              item == 'sys' ||
-              item == 'performance_schema' ||
-              item == 'information_schema'
+            item == 'sys' ||
+            item == 'performance_schema' ||
+            item == 'information_schema'
               ? true
               : false,
         }));
       } catch (error) {
         console.log(error);
-        this.treeData = []
+        this.treeData = [];
       }
       this.loadingTree = false;
     },

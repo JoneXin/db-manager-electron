@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain, session } from 'electron';
 import { join } from 'path';
-// const InitApp = require('./server/index.js');
+import { bootstrap } from './server/main';
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -22,7 +22,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  // InitApp();
+  bootstrap();
   createWindow();
 
   session.defaultSession.webRequest.onHeadersReceived((details, callback) => {

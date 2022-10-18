@@ -76,6 +76,7 @@
   import { EventDataNode } from 'ant-design-vue/lib/tree';
   import TableModel from './table.model.vue';
   import { getTableDetail } from '../../../../api/table';
+  import { query } from '../../../../api/database';
 
   const treeState = reactive({
     expandedKeys: [],
@@ -242,13 +243,22 @@
     const tableNode = e.node;
 
     setCurrenSelectDb(dbNode.title);
+    dbStore.clickDbName = dbNode.title;
+    dbStore.clickTableName = tableNode.title;
 
     systemStore.showResultLoading();
     try {
       await dbStore.queryBySql(
         dbNode.title,
-        `select * from ${dbNode.title}.${tableNode.title} limit 0, 100`,
+        `select * from ${dbNode.title}.${tableNode.title} limit 0, ${dbStore.detailPageSize}`,
       );
+
+      let res = await query({
+        ...dbStore.currentOperatoeConnInfo,
+        database: dbNode.title,
+        query_content: `select count(*) as count from ${dbNode.title}.${tableNode.title}`,
+      });
+      dbStore.detailTotal = res.list[0]['count'];
     } catch (error) {
       console.log(error);
     }

@@ -9,7 +9,7 @@
           :columns="dbStore.currentSearchResultColum"
           :data-source="dbStore.currentSearchResult"
           :pagination="false"
-          :scroll="{ y: 450 }"
+          :scroll="{ y: 520 }"
           class="result-table"
           bordered
           @resizeColumn="resultState.handleResizeColumn"
@@ -22,7 +22,14 @@
           </template>
         </a-table>
         <div class="pagination">
-          <a-pagination size="small" :total="50" show-size-changer show-quick-jumper />
+          <span class="total">数据总量:{{ dbStore.detailTotal }}</span>
+          <a-pagination
+            :total="dbStore.detailTotal"
+            show-quick-jumper
+            :show-size-changer="false"
+            :page-size="dbStore.detailPageSize"
+            @change="handlePageChange"
+          />
         </div>
       </a-spin>
     </div>
@@ -47,6 +54,21 @@
   const systemStore = useSystemStore();
 
   onMounted(() => {});
+
+  const handlePageChange = async (pageNum: number) => {
+    systemStore.showResultLoading();
+    try {
+      await dbStore.queryBySql(
+        dbStore.clickDbName,
+        `select * from ${dbStore.clickDbName}.${dbStore.clickTableName} limit ${
+          pageNum * dbStore.detailPageSize
+        }, ${dbStore.detailPageSize}`,
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    systemStore.hideResultLoading();
+  };
 </script>
 
 <style lang="less" scoped>
@@ -85,7 +107,7 @@
       box-sizing: border-box;
       // background-color: #97abff;
       .result-table {
-        height: 87% !important;
+        height: 92% !important;
       }
       .tableCell {
         height: 98%;
@@ -95,7 +117,13 @@
       .pagination {
         display: flex;
         justify-content: flex-end;
+        align-items: center;
         margin-top: 10px;
+        .total {
+          margin-right: 20px;
+          font-weight: 600;
+          color: red;
+        }
       }
     }
   }
@@ -110,28 +138,8 @@
       color: white;
     }
     &:hover {
-      // box-shadow: 0px 0px 10px inset rgba(128, 128, 128, 0.39);
       scale: 1.1;
       color: #6be676;
     }
   }
 </style>
-<!-- <style>
-  .result-table .ant-spin-container {
-    height: 100%;
-    border: 1px solid firebrick !important;
-  }
-  .result-table
-    .ant-spin-container
-    .ant-table-empty
-    .ant-table-container
-    .ant-table-body
-    .ant-empty {
-    border: 1px solid rgb(34, 178, 89) !important;
-    height: 400px;
-  }
-  .result-table .ant-spin-container .ant-table-empty {
-    height: 100%;
-    border: 1px solid rgb(34, 36, 178) !important;
-  }
-</style> -->

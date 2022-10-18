@@ -42,6 +42,6 @@
 body {
     background-color: aliceblue;
     border: 1px solid transparent;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 100%;
 }

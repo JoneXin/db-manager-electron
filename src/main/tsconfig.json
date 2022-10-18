@@ -2,13 +2,20 @@
   "compilerOptions": {
     "target": "ES2015",
     "module": "commonjs",
-    "strict": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "outDir": "../../build/main",
-    "allowJs": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
     "noImplicitAny": false,
-  },
-  "exclude": ["static"]
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  }
 }
